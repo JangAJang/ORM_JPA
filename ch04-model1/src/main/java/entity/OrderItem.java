@@ -18,12 +18,12 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name = "orderId")
+    @JoinColumn(name = "Orders_id")
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Orders orders;
 
-    @JoinColumn(name = "itemId")
+    @JoinColumn(name = "Item_id")
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Item item;

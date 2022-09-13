@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -17,6 +20,9 @@ public class Member {
     @Column
     private String name;
 
+    @OneToMany(mappedBy = "member")
+    private List<Orders> orders = new ArrayList<>();
+
     @Column
     private String city;
 
@@ -25,4 +31,12 @@ public class Member {
 
     @Column
     private String zipcode;
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
+    }
 }

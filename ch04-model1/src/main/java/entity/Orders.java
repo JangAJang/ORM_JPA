@@ -7,7 +7,9 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,6 +29,22 @@ public class Orders {
     @Column
     private Date ordereDate;
 
+    @OneToMany(mappedBy = "orders")
+    private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    public void setMember(Member member){
+        if(this.member!=null){
+            this.member.getOrders().remove(this);
+        }
+        this.member = member;
+        member.getOrders().add(this);
+    }
+
+    public void addOrderItem(OrderItem orderItem){
+        orderItems.add(orderItem);
+        orderItem.setOrders(this);
+    }
 }
