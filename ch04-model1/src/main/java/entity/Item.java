@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -26,4 +28,7 @@ public class Item {
 
     @Column
     private String stockQuantity;
+
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categoryList = new ArrayList<Category>();
 }

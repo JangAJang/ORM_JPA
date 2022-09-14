@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -19,19 +18,19 @@ public class Member {
     @Column(name = "MEMBERS_ID")
     private Long id;
 
-    @Column
+    @Column(name = "MEMBERS_NAME")
     private String name;
 
     @OneToMany(mappedBy = "member")
     private List<Orders> orders = new ArrayList<>();
 
-    @Column
+    @Column(name = "MEMBERS_CITY")
     private String city;
 
-    @Column
+    @Column(name = "MEMBERS_STREET")
     private String street;
 
-    @Column
+    @Column(name = "MEMBERS_ZIPCODE")
     private String zipcode;
 
     public List<Orders> getOrders() {
