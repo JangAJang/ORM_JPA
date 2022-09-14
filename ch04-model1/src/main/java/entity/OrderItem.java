@@ -12,18 +12,20 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "ORDERITEM")
 public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ORDERITEM_ID")
     private Long id;
 
-    @JoinColumn(name = "Orders_id")
+    @JoinColumn(name = "ORDERS_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Orders orders;
 
-    @JoinColumn(name = "Item_id")
+    @JoinColumn(name = "ITEM_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Item item;
