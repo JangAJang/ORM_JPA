@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "ORDERS")
-public class Orders {
+public class Orders extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class Orders {
     private Member member;
 
     @Column
-    private Date ordereDate;
+    private Date orderDate;
 
     @OneToMany(mappedBy = "orders")
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();

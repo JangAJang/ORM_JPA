@@ -1,5 +1,6 @@
 package entity;
 
+import entity.items.Item;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

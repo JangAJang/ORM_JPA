@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "MEMBERS")
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +32,8 @@ public class Member {
 
     @Column(name = "MEMBERS_ZIPCODE")
     private String zipcode;
+
+
 
     public List<Orders> getOrders() {
         return orders;

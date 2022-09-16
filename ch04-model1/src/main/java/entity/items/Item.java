@@ -1,5 +1,6 @@
-package entity;
+package entity.items;
 
+import entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "ITEM")
+@DiscriminatorColumn(name = "TYPE")
 public class Item {
 
     @Id
